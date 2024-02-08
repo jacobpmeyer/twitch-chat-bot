@@ -1,4 +1,4 @@
-const env = require('dotenv').config();
+require('dotenv').config();
 const tmi = require('tmi.js');
 
 // Define configuration options
