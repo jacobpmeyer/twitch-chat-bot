@@ -50,7 +50,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 5. Build and run the application using Docker Compose:
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
 This command builds the Docker image (if necessary) and starts the chat bot in a container. Your application is now running inside a Docker container and connected to Twitch using the credentials provided in the `.env` file.
