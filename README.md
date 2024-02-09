@@ -8,40 +8,52 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-- Node.js
-- npm
+- [Node.js](https://nodejs.org/) (if running locally without Docker)
+- [Docker](https://www.docker.com/get-started) (for containerization)
+- [Docker Compose](https://docs.docker.com/compose/install/) (for running multi-container Docker applications)
 
 ### Installation
 
+#### Running Locally without Docker
+
 1. Clone the repository:
-```bash
-git clone https://github.com/jacobpmeyer/twitch-chat-bot.git
-```
-
+   ```bash
+   git clone https://github.com/yourusername/twitch-chat-bot.git
+   ```
 2. Navigate to the project directory:
-```bash
-cd twitch-chat-bot
-```
+   ```bash
+   cd twitch-chat-bot
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Create a `.env` file in the root directory with your Twitch credentials and channel name as described in the [Environment Variables](#environment-variables) section.
 
-3. Install the project dependencies:
-```bash
-npm install
-```
+5. Run the bot:
+   ```bash
+   node bot.js
+   ```
 
-### Setup
+#### Running with Docker
 
-1. Create a `.env` file in the root directory with the following content, replacing `your_value_here` with your actual data:
-```bash
-BOT_USERNAME=your_value_here
-OAUTH_TOKEN=oauth:your_value_here
-CHANNEL_NAME=your_value_here
-```
-See [Environment Variables](#environment-variables) section for more details.
+1. Ensure Docker and Docker Compose are installed on your machine.
+2. Clone the repository (if you haven't already):
+   ```bash
+   git clone https://github.com/yourusername/twitch-chat-bot.git
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd twitch-chat-bot
+   ```
+4. Create a `.env` file in the root directory with your Twitch credentials and channel name. This file will be automatically used by Docker Compose to set environment variables in your container.
 
-2. Run the bot:
-```bash
-node bot.js
-```
+5. Build and run the application using Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
+
+This command builds the Docker image (if necessary) and starts the chat bot in a container. Your application is now running inside a Docker container and connected to Twitch using the credentials provided in the `.env` file.
 
 ## Environment Variables
 
@@ -58,7 +70,3 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- `tmi.js` library for providing an easy interface to Twitch's chat.
